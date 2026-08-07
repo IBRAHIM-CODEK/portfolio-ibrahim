@@ -1,120 +1,253 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { Mail, Phone } from "lucide-react";
+import { FiGithub, FiLinkedin } from "react-icons/fi";
 import {
-  EngineersTable,
-  ProjectsTable,
-  ExperienceTable,
-  StackTable,
-  ContactTable
-} from "@/components/DatabaseTables";
+  Section,
+  SectionHeader,
+  IconBadge,
+  ProjectMockup,
+  SkillChip,
+  DotNav
+} from "@/components/Shared";
+
+export const CTAButton = ({ icon: Icon, label, href }: { icon: any, label: string, href: string }) => (
+  <a href={href} className="flex items-center justify-center gap-2 px-6 py-3 bg-signal-amber text-ink-900 font-semibold text-[15px] rounded-[8px] hover:bg-[#DC9530] transition-colors focus-ring w-fit">
+    <Icon className="w-5 h-5" strokeWidth={2} />
+    <span>{label}</span>
+  </a>
+);
 
 export default function Home() {
-  const [activeTable, setActiveTable] = useState("engineers");
-  const [typingState, setTypingState] = useState<"idle" | "typing" | "done">("typing");
-  const [displayedQuery, setDisplayedQuery] = useState("");
-
-  const tables = [
-    { id: "engineers", label: "engineers", desc: "(About Me)" },
-    { id: "projects", label: "projects", desc: "(Portfolio)" },
-    { id: "experience", label: "experience", desc: "(Resume)" },
-    { id: "stack", label: "stack", desc: "(Skills)" },
-    { id: "contact", label: "contact", desc: "(Links)" },
+  const schemaFields = [
+    { key: "name", value: '"Ibrahim Muhammad"' },
+    { key: "role", value: '"Software Engineer"' },
+    { key: "location", value: '"Gujrat, Pakistan"' },
+    { key: "stack", value: "[React, Next.js, Express, PostgreSQL, Prisma]" },
   ];
 
-  useEffect(() => {
-    setTypingState("typing");
-    setDisplayedQuery("");
-  }, [activeTable]);
-
-  useEffect(() => {
-    if (typingState === "typing") {
-      let i = 0;
-      const query = `> SELECT * FROM public.${activeTable};`;
-      const interval = setInterval(() => {
-        setDisplayedQuery(query.slice(0, i + 1));
-        i++;
-        if (i === query.length) {
-          clearInterval(interval);
-          setTypingState("done");
-        }
-      }, 15);
-      return () => clearInterval(interval);
-    }
-  }, [activeTable, typingState]);
-
-  const renderTable = () => {
-    switch (activeTable) {
-      case "engineers": return <EngineersTable />;
-      case "projects": return <ProjectsTable />;
-      case "experience": return <ExperienceTable />;
-      case "stack": return <StackTable />;
-      case "contact": return <ContactTable />;
-      default: return null;
-    }
-  };
+  const sections = ["hero", "about", "stack", "project-1", "project-2", "project-3", "contact"];
 
   return (
-    <main className="flex h-screen w-full overflow-hidden bg-bg-canvas text-ink-primary">
-      {/* Sidebar - Object Explorer */}
-      <aside className="w-[20%] min-w-[260px] max-w-[300px] h-full border-r-[1px] border-ink-primary flex flex-col">
-        <div className="p-4 border-b-[1px] border-ink-primary">
-          <h1 className="font-bold text-[14px] uppercase tracking-wide">
-            ▼ portfolio_db
-          </h1>
-        </div>
-        <nav className="flex-1 p-4 flex flex-col gap-2">
-          {tables.map((table) => {
-            const isActive = activeTable === table.id;
-            return (
-              <button
-                key={table.id}
-                onClick={() => setActiveTable(table.id)}
-                className={`flex items-center gap-3 text-left w-full px-2 py-1 transition-colors ${
-                  isActive 
-                    ? "bg-[#F3F3F3]" 
-                    : "hover:underline"
-                }`}
-              >
-                <span className={`font-medium ${isActive ? "text-ink-primary" : "text-ink-muted"}`}>≡</span>
-                <span className={`font-medium ${isActive ? "text-ink-primary" : "text-ink-primary"}`}>
-                  {table.label}
-                </span>
-                <span className="text-ink-muted text-[13px] ml-auto whitespace-nowrap">
-                  {table.desc}
-                </span>
-              </button>
-            );
-          })}
-        </nav>
-      </aside>
+    <main className="flex min-h-screen flex-col bg-ink-900 w-full selection:bg-signal-amber selection:text-ink-900">
+      <DotNav sections={sections} />
 
-      {/* Main Canvas */}
-      <section className="flex-1 h-full overflow-y-auto">
-        <div className="max-w-[1000px] mx-auto w-full p-8 md:p-16 flex flex-col">
-          
-          {/* Query Console */}
-          <div className="mb-8 min-h-[30px] flex items-center">
-            {typingState !== "idle" && (
-              <span className={`text-[14px] ${typingState === "done" ? "text-ink-primary" : "text-ink-muted"}`}>
-                {displayedQuery}
-                {typingState === "typing" && <span className="inline-block w-2 h-4 bg-ink-primary ml-1 cursor-blink align-middle"></span>}
-              </span>
-            )}
+      {/* 1. HERO */}
+      <Section bgTheme="ink" id="hero" index={0} className="bg-blueprint-grid min-h-screen justify-center">
+        <div className="relative w-full max-w-[800px] mx-auto mt-20 lg:mt-0">
+          {/* Accent signature */}
+          <div className="absolute -top-12 lg:-top-16 -left-2 lg:-left-8 rotate-[-6deg] opacity-80 z-20 pointer-events-none">
+            <span className="font-caveat font-[600] text-[56px] lg:text-[80px] text-text-muted-dark">
+              Ibrahim
+            </span>
           </div>
 
-          {/* Table Data Snap-in */}
-          {typingState === "done" && (
+          <div className="font-mono text-[14px] md:text-[16px] lg:text-[18px] text-paper-100 leading-[2] md:leading-[2.5] relative z-10 w-full lg:w-fit">
+            <div className="animate-field-stagger" style={{ animationDelay: '0ms' }}>
+              <span className="text-signal-amber font-medium">person</span> {"{"}
+            </div>
+            {schemaFields.map((field, i) => (
+              <div key={field.key} className="pl-6 md:pl-12 flex flex-col md:flex-row animate-field-stagger" style={{ animationDelay: `${(i + 1) * 80}ms` }}>
+                <span className="w-24 lg:w-32 text-paper-100 shrink-0">{field.key}</span>
+                <span className="text-paper-100 break-words">{field.value}</span>
+              </div>
+            ))}
+            <div className="pl-6 md:pl-12 flex flex-col md:flex-row md:items-center animate-field-stagger" style={{ animationDelay: `${(schemaFields.length + 1) * 80}ms` }}>
+              <span className="w-24 lg:w-32 text-paper-100 shrink-0">status</span>
+              <span className="flex items-center gap-2 text-paper-100">
+                <span className="w-2 h-2 rounded-full bg-signal-amber animate-pulse-amber"></span>
+                available
+              </span>
+            </div>
+            <div className="animate-field-stagger" style={{ animationDelay: `${(schemaFields.length + 2) * 80}ms` }}>{"}"}</div>
+          </div>
+          
+          <div className="mt-12 flex flex-wrap gap-4 animate-field-stagger relative z-10" style={{ animationDelay: `${(schemaFields.length + 3) * 80}ms` }}>
+            <CTAButton icon={Mail} label="Contact Me" href="mailto:im.7249000@gmail.com" />
+            <IconBadge icon={FiGithub} label="Github" bgTheme="ink" href="https://github.com/Ibrahim-116" />
+            <IconBadge icon={FiLinkedin} label="LinkedIn" bgTheme="ink" href="https://linkedin.com/in/Ibrahim-Muhammad" />
+          </div>
+        </div>
+      </Section>
+
+      {/* 2. ABOUT ME */}
+      <Section bgTheme="paper" id="about" index={1}>
+        <SectionHeader label="TABLE: about_me" />
+        <div className="flex-1 flex flex-col justify-center">
+          <div className="max-w-[800px]">
+            <h2 className="font-display font-[600] text-[clamp(2rem,5vw,3.25rem)] tracking-[-0.5px] leading-[1.2] mb-8 text-paper-text">
+              About Me
+            </h2>
+            <p className="font-sans font-normal text-[17px] leading-[1.6] text-text-muted-light mb-8">
+              Software Engineering student with hands-on experience building full-stack web applications using React, Next.js, PostgreSQL, and Prisma ORM. Comfortable across the stack — from designing REST APIs and database schemas to building clean, functional UIs. Led documentation and frontend development on a team project. Looking to join a collaborative team where I can contribute, learn fast, and grow as a full-stack engineer.
+            </p>
+            <div className="mb-10">
+              <span className="inline-block bg-paper-50 border-[1px] border-line-blueprint/30 rounded-[4px] py-[6px] px-[12px] font-mono font-medium text-[12px] text-paper-text uppercase tracking-wide">
+                BSSE, University of Gujrat — 2022-2026
+              </span>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+
+      {/* 3. MY STACK */}
+      <Section bgTheme="ink" id="stack" index={2}>
+        <SectionHeader label="TABLE: tech_stack" />
+        <div className="flex-1 flex flex-col justify-center">
+          <h2 className="font-display font-[600] text-[clamp(2rem,5vw,3.25rem)] tracking-[-0.5px] leading-[1.2] mb-12 text-ink-text">
+            My Stack
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[48px]">
             <div>
-              {renderTable()}
-              <div className="mt-4 text-[13px] text-ink-muted">
-                (Query executed successfully in {Math.floor(Math.random() * 40) + 10}ms)
+              <p className="font-mono font-medium text-[12px] uppercase text-text-muted-dark mb-4 tracking-[1.5px]">Languages</p>
+              <div className="flex flex-wrap gap-[8px]">
+                <SkillChip label="JavaScript" />
+                <SkillChip label="TypeScript" />
+                <SkillChip label="SQL" />
               </div>
             </div>
-          )}
+            
+            <div>
+              <p className="font-mono font-medium text-[12px] uppercase text-text-muted-dark mb-4 tracking-[1.5px]">Frontend</p>
+              <div className="flex flex-wrap gap-[8px]">
+                <SkillChip label="React.js" />
+                <SkillChip label="Next.js" />
+                <SkillChip label="Vanilla JS" />
+                <SkillChip label="HTML5" />
+                <SkillChip label="CSS3" />
+                <SkillChip label="Tailwind CSS" />
+              </div>
+            </div>
 
+            <div>
+              <p className="font-mono font-medium text-[12px] uppercase text-text-muted-dark mb-4 tracking-[1.5px]">Backend</p>
+              <div className="flex flex-wrap gap-[8px]">
+                <SkillChip label="Express.js" />
+                <SkillChip label="Next.js API" />
+                <SkillChip label="REST API" />
+              </div>
+            </div>
+
+            <div>
+              <p className="font-mono font-medium text-[12px] uppercase text-text-muted-dark mb-4 tracking-[1.5px]">Database & ORM</p>
+              <div className="flex flex-wrap gap-[8px]">
+                <SkillChip label="PostgreSQL" />
+                <SkillChip label="MongoDB" />
+                <SkillChip label="Mongoose" />
+                <SkillChip label="Prisma" />
+              </div>
+            </div>
+
+            <div>
+              <p className="font-mono font-medium text-[12px] uppercase text-text-muted-dark mb-4 tracking-[1.5px]">Tools</p>
+              <div className="flex flex-wrap gap-[8px]">
+                <SkillChip label="Git" />
+                <SkillChip label="GitHub" />
+                <SkillChip label="Postman" />
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
+      </Section>
+
+      {/* 4. PROJECT 1 - PLANORA */}
+      <Section bgTheme="paper" id="project-1" index={3}>
+        <SectionHeader label="TABLE: planora" />
+        <div className="flex-1 flex flex-col xl:flex-row justify-between items-center gap-12 xl:gap-16">
+          <div className="flex-1 w-full max-w-[600px]">
+            <h2 className="font-display font-[600] text-[clamp(2rem,5vw,3.25rem)] tracking-[-0.5px] leading-[1.2] mb-4 text-paper-text">
+              Planora
+            </h2>
+            <p className="font-sans font-medium text-[17px] text-paper-text mb-4">
+              An AI-powered free project management tool
+            </p>
+            <p className="font-sans font-normal text-[15px] leading-[1.6] text-text-muted-light mb-6">
+              Full-stack web platform for team-based project management with role-based access and workload tracking.
+            </p>
+            <ul className="font-sans font-normal text-[15px] leading-[1.5] text-text-muted-light list-disc pl-5 flex flex-col gap-2">
+              <li>Frontend development in Next.js — dashboards, task boards, RBAC-based UI flows</li>
+              <li>Documentation lead — full FYP docs including ERD, FPA, COCOMO'81 cost estimation, and PlantUML diagrams</li>
+            </ul>
+          </div>
+          <div className="w-full xl:w-auto">
+            <ProjectMockup projectName="Planora" bgTheme="paper" />
+          </div>
+        </div>
+      </Section>
+
+      {/* 5. PROJECT 2 - GYM MANAGEMENT SYSTEM */}
+      <Section bgTheme="ink" id="project-2" index={4}>
+        <SectionHeader label="TABLE: form_factor" />
+        <div className="flex-1 flex flex-col xl:flex-row-reverse justify-between items-center gap-12 xl:gap-16">
+          <div className="flex-1 w-full max-w-[600px]">
+            <h2 className="font-display font-[600] text-[clamp(2rem,5vw,3.25rem)] tracking-[-0.5px] leading-[1.2] mb-4 text-ink-text">
+              Gym Management
+            </h2>
+            <p className="font-sans font-medium text-[17px] text-ink-text mb-4">
+              A simple React-Express gym management system
+            </p>
+            <p className="font-sans font-normal text-[15px] leading-[1.6] text-text-muted-dark mb-6">
+              Full-stack web application built to manage gym operations — members, classes, check-ins, and inventory.
+            </p>
+            <ul className="font-sans font-normal text-[15px] leading-[1.5] text-text-muted-dark list-disc pl-5 flex flex-col gap-2">
+              <li>Relational database schema using Prisma ORM and SQLite for members, schedules, and equipment</li>
+              <li>Administrative features secured with JWT authentication and password hashing</li>
+              <li>Inventory tracker for equipment status and maintenance logs</li>
+              <li>Responsive dashboard built with React 19, Vite, Tailwind CSS, and GSAP animations</li>
+            </ul>
+          </div>
+          <div className="w-full xl:w-auto">
+            <ProjectMockup projectName="Gym Management System" bgTheme="ink" />
+          </div>
+        </div>
+      </Section>
+
+      {/* 6. PROJECT 3 - INKWELL */}
+      <Section bgTheme="paper" id="project-3" index={5}>
+        <SectionHeader label="TABLE: inkwell" />
+        <div className="flex-1 flex flex-col xl:flex-row justify-between items-center gap-12 xl:gap-16">
+          <div className="flex-1 w-full max-w-[600px]">
+            <h2 className="font-display font-[600] text-[clamp(2rem,5vw,3.25rem)] tracking-[-0.5px] leading-[1.2] mb-4 text-paper-text">
+              Inkwell
+            </h2>
+            <p className="font-sans font-medium text-[17px] text-paper-text mb-4">
+              Personalised long-form writing & content discovery platform
+            </p>
+            <p className="font-sans font-normal text-[15px] leading-[1.6] text-text-muted-light mb-6">
+              Full-stack writing and discovery platform where users publish long-form articles.
+            </p>
+            <ul className="font-sans font-normal text-[15px] leading-[1.5] text-text-muted-light list-disc pl-5 flex flex-col gap-2">
+              <li>Built with Next.js (fullstack) + PostgreSQL + Prisma — no separate backend service</li>
+              <li>Rich text editor and real-time notifications system</li>
+            </ul>
+          </div>
+          <div className="w-full xl:w-auto">
+            <ProjectMockup projectName="Inkwell" bgTheme="paper" />
+          </div>
+        </div>
+      </Section>
+
+      {/* 7. LET'S WORK TOGETHER */}
+      <Section bgTheme="ink" id="contact" index={6}>
+        <SectionHeader label="TABLE: contact" />
+        <div className="flex-1 flex flex-col justify-center items-center text-center max-w-[600px] mx-auto">
+          <h2 className="font-display font-[600] text-[clamp(2.5rem,6vw,4rem)] tracking-[-1px] leading-[1.1] mb-6 text-ink-text">
+            Let's build something structured.
+          </h2>
+          <p className="font-sans font-normal text-[17px] text-text-muted-dark mb-12">
+            Available for new opportunities. Reach out if you're looking for a developer who treats front-end code with back-end rigor.
+          </p>
+          <div className="flex flex-wrap gap-[16px] justify-center items-center w-full">
+            <CTAButton icon={Mail} label="Email Me" href="mailto:im.7249000@gmail.com" />
+            <IconBadge icon={Phone} label="0310-7754767" bgTheme="ink" href="tel:03107754767" />
+            <IconBadge icon={FiGithub} label="Github" bgTheme="ink" href="https://github.com/Ibrahim-116" />
+            <IconBadge icon={FiLinkedin} label="LinkedIn" bgTheme="ink" href="https://linkedin.com/in/Ibrahim-Muhammad" />
+          </div>
+        </div>
+      </Section>
     </main>
   );
 }

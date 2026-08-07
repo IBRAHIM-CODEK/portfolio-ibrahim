@@ -1,9 +1,43 @@
 import type { Metadata } from "next";
+import {
+  Space_Grotesk,
+  IBM_Plex_Sans,
+  IBM_Plex_Mono,
+  Caveat,
+} from "next/font/google";
 import "./globals.css";
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["600", "700"],
+});
+
+const ibmPlexSans = IBM_Plex_Sans({
+  variable: "--font-ibm-plex-sans",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500"],
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-ibm-plex-mono",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500"],
+});
+
+const caveat = Caveat({
+  variable: "--font-caveat",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["600"],
+});
 
 export const metadata: Metadata = {
   title: "Ibrahim Muhammad - Software Engineer Portfolio",
-  description: "Database GUI - Software Engineer Portfolio of Ibrahim Muhammad",
+  description: "Software Engineer Portfolio of Ibrahim Muhammad",
 };
 
 export default function RootLayout({
@@ -12,13 +46,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cause:wght@100..900&family=Changa+One:ital@0;1&family=Diplomata&family=Google+Sans+Code:ital,wght,MONO@0,300..800,1;1,300..800,1&family=Jomhuria&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
-      </head>
-      <body className="min-h-full flex flex-col bg-bg-canvas text-ink-primary" style={{ fontFamily: "'Google Sans Code', monospace" }}>
+    <html
+      lang="en"
+      className={`${spaceGrotesk.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable} ${caveat.variable} scroll-smooth`}
+    >
+      <body className="min-h-full flex flex-col font-sans bg-ink-900">
         {children}
       </body>
     </html>
