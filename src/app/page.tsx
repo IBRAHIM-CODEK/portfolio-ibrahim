@@ -219,7 +219,7 @@ export default function Home() {
                 </div>
               }
               tech="Next.js, PostgreSQL, Prisma ORM"
-              link="https://github.com/Ibrahim-116/planora"
+              link="https://github.com/ibrahim-116/Planora/tree/new-repo"
             />
 
             <ProjectAccordion
