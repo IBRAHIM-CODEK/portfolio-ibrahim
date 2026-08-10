@@ -25,9 +25,7 @@ const ProjectAccordion = ({
         className="w-full text-left py-10 lg:py-16 focus-ring outline-none"
       >
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <h3
-            className={`text-[32px] md:text-[4.5vw] leading-[1] tracking-ultra-tight font-medium transition-all duration-300 flex items-center gap-4 lg:gap-8 ${isOpen ? "italic" : "group-hover:italic"}`}
-          >
+          <h3 className="text-[32px] md:text-[4.5vw] leading-[1] tracking-ultra-tight font-medium transition-all duration-300 flex items-center gap-4 lg:gap-8">
             {title}
             <svg
               className={`w-8 h-8 md:w-12 md:h-12 transition-all duration-300 ${isOpen ? "rotate-180 opacity-100" : "opacity-20 group-hover:opacity-100 group-hover:translate-y-1"}`}
