@@ -101,30 +101,7 @@ export const IconBadge = ({
   );
 };
 
-export const ProjectMockup = ({ 
-  projectName, 
-  bgTheme 
-}: { 
-  projectName: string;
-  bgTheme: "ink" | "paper";
-}) => {
-  const isDark = bgTheme === "ink";
-  const bgColor = isDark ? "bg-ink-700" : "bg-paper-50";
-  const textColor = isDark ? "text-text-muted-dark" : "text-text-muted-light";
 
-  return (
-    <div className={`group relative rounded-[8px] p-[16px] w-full lg:max-w-[560px] aspect-[16/10] mx-auto lg:mx-0 flex-shrink-0 ${bgColor} border-[1px] border-line-blueprint hover:border-signal-amber transition-colors duration-300`}>
-      {/* Corner Tick Mark */}
-      <div className="absolute top-0 left-0 w-4 h-4 border-t-[2px] border-l-[2px] border-signal-amber opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-x-[1px] -translate-y-[1px]"></div>
-      
-      <div className="rounded-[4px] w-full h-full flex flex-col items-center justify-center text-center p-4 border-[1px] border-dashed border-line-blueprint/20">
-        <span className={`font-mono text-[12px] ${textColor}`}>
-          Screenshot placeholder — {projectName}
-        </span>
-      </div>
-    </div>
-  );
-};
 
 export const SkillChip = ({
   label,

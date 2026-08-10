@@ -7,10 +7,10 @@ import {
   Section,
   SectionHeader,
   IconBadge,
-  ProjectMockup,
   SkillChip,
   DotNav,
 } from "@/components/Shared";
+import { DynamicProjectVisualizer } from "@/components/ProjectVisualizers";
 
 export const CTAButton = ({
   icon: Icon,
@@ -259,7 +259,7 @@ export default function Home() {
             </ul>
           </div>
           <div className="w-full xl:w-auto">
-            <ProjectMockup projectName="Planora" bgTheme="paper" />
+            <DynamicProjectVisualizer projectId="planora" bgTheme="paper" />
           </div>
         </div>
       </Section>
@@ -298,7 +298,7 @@ export default function Home() {
             </ul>
           </div>
           <div className="w-full xl:w-auto">
-            <ProjectMockup projectName="Gym Management System" bgTheme="ink" />
+            <DynamicProjectVisualizer projectId="gym" bgTheme="ink" />
           </div>
         </div>
       </Section>
@@ -327,7 +327,7 @@ export default function Home() {
             </ul>
           </div>
           <div className="w-full xl:w-auto">
-            <ProjectMockup projectName="Inkwell" bgTheme="paper" />
+            <DynamicProjectVisualizer projectId="inkwell" bgTheme="paper" />
           </div>
         </div>
       </Section>
