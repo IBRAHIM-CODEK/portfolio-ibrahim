@@ -244,7 +244,7 @@ export default function Home() {
                 </div>
               }
               tech="React, Express, SQLite, Node.js"
-              link="https://github.com/Ibrahim-116/gym-management"
+              link="https://github.com/ibrahim-116/next-js-gym-management-system"
             />
 
             <ProjectAccordion
