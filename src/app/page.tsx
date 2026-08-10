@@ -9,11 +9,22 @@ import {
   IconBadge,
   ProjectMockup,
   SkillChip,
-  DotNav
+  DotNav,
 } from "@/components/Shared";
 
-export const CTAButton = ({ icon: Icon, label, href }: { icon: any, label: string, href: string }) => (
-  <a href={href} className="flex items-center justify-center gap-2 px-6 py-3 bg-signal-amber text-ink-900 font-semibold text-[15px] rounded-[8px] hover:bg-[#DC9530] transition-colors focus-ring w-fit">
+export const CTAButton = ({
+  icon: Icon,
+  label,
+  href,
+}: {
+  icon: any;
+  label: string;
+  href: string;
+}) => (
+  <a
+    href={href}
+    className="flex items-center justify-center gap-2 px-6 py-3 bg-signal-amber text-ink-900 font-semibold text-[15px] rounded-[8px] hover:bg-[#DC9530] transition-colors focus-ring w-fit"
+  >
     <Icon className="w-5 h-5" strokeWidth={2} />
     <span>{label}</span>
   </a>
@@ -27,14 +38,27 @@ export default function Home() {
     { key: "stack", value: "[React, Next.js, Express, PostgreSQL, Prisma]" },
   ];
 
-  const sections = ["hero", "about", "stack", "project-1", "project-2", "project-3", "contact"];
+  const sections = [
+    "hero",
+    "about",
+    "stack",
+    "project-1",
+    "project-2",
+    "project-3",
+    "contact",
+  ];
 
   return (
     <main className="flex min-h-screen flex-col bg-ink-900 w-full selection:bg-signal-amber selection:text-ink-900">
       <DotNav sections={sections} />
 
       {/* 1. HERO */}
-      <Section bgTheme="ink" id="hero" index={0} className="bg-blueprint-grid min-h-screen justify-center">
+      <Section
+        bgTheme="ink"
+        id="hero"
+        index={0}
+        className="bg-blueprint-grid min-h-screen justify-center"
+      >
         <div className="relative w-full max-w-[800px] mx-auto mt-20 lg:mt-0">
           {/* Accent signature */}
           <div className="absolute -top-12 lg:-top-16 -left-2 lg:-left-8 rotate-[-6deg] opacity-80 z-20 pointer-events-none">
@@ -44,29 +68,68 @@ export default function Home() {
           </div>
 
           <div className="font-mono text-[14px] md:text-[16px] lg:text-[18px] text-paper-100 leading-[2] md:leading-[2.5] relative z-10 w-full lg:w-fit">
-            <div className="animate-field-stagger" style={{ animationDelay: '0ms' }}>
-              <span className="text-signal-amber font-medium">person</span> {"{"}
+            <div
+              className="animate-field-stagger"
+              style={{ animationDelay: "0ms" }}
+            >
+              <span className="text-signal-amber font-medium">person</span>{" "}
+              {"{"}
             </div>
             {schemaFields.map((field, i) => (
-              <div key={field.key} className="pl-6 md:pl-12 flex flex-col md:flex-row animate-field-stagger" style={{ animationDelay: `${(i + 1) * 80}ms` }}>
-                <span className="w-24 lg:w-32 text-paper-100 shrink-0">{field.key}</span>
-                <span className="text-paper-100 break-words">{field.value}</span>
+              <div
+                key={field.key}
+                className="pl-6 md:pl-12 flex flex-col md:flex-row animate-field-stagger"
+                style={{ animationDelay: `${(i + 1) * 80}ms` }}
+              >
+                <span className="w-24 lg:w-32 text-paper-100 shrink-0">
+                  {field.key}
+                </span>
+                <span className="text-paper-100 break-words">
+                  {field.value}
+                </span>
               </div>
             ))}
-            <div className="pl-6 md:pl-12 flex flex-col md:flex-row md:items-center animate-field-stagger" style={{ animationDelay: `${(schemaFields.length + 1) * 80}ms` }}>
-              <span className="w-24 lg:w-32 text-paper-100 shrink-0">status</span>
+            <div
+              className="pl-6 md:pl-12 flex flex-col md:flex-row md:items-center animate-field-stagger"
+              style={{ animationDelay: `${(schemaFields.length + 1) * 80}ms` }}
+            >
+              <span className="w-24 lg:w-32 text-paper-100 shrink-0">
+                status
+              </span>
               <span className="flex items-center gap-2 text-paper-100">
                 <span className="w-2 h-2 rounded-full bg-signal-amber animate-pulse-amber"></span>
                 available
               </span>
             </div>
-            <div className="animate-field-stagger" style={{ animationDelay: `${(schemaFields.length + 2) * 80}ms` }}>{"}"}</div>
+            <div
+              className="animate-field-stagger"
+              style={{ animationDelay: `${(schemaFields.length + 2) * 80}ms` }}
+            >
+              {"}"}
+            </div>
           </div>
-          
-          <div className="mt-12 flex flex-wrap gap-4 animate-field-stagger relative z-10" style={{ animationDelay: `${(schemaFields.length + 3) * 80}ms` }}>
-            <CTAButton icon={Mail} label="Contact Me" href="mailto:im.7249000@gmail.com" />
-            <IconBadge icon={FiGithub} label="Github" bgTheme="ink" href="https://github.com/Ibrahim-116" />
-            <IconBadge icon={FiLinkedin} label="LinkedIn" bgTheme="ink" href="https://linkedin.com/in/Ibrahim-Muhammad" />
+
+          <div
+            className="mt-12 flex flex-wrap gap-4 animate-field-stagger relative z-10"
+            style={{ animationDelay: `${(schemaFields.length + 3) * 80}ms` }}
+          >
+            <CTAButton
+              icon={Mail}
+              label="Contact Me"
+              href="mailto:im.7249000@gmail.com"
+            />
+            <IconBadge
+              icon={FiGithub}
+              label="Github"
+              bgTheme="ink"
+              href="https://github.com/Ibrahim-116"
+            />
+            <IconBadge
+              icon={FiLinkedin}
+              label="LinkedIn"
+              bgTheme="ink"
+              href="https://linkedin.com/in/Ibrahim-Muhammad"
+            />
           </div>
         </div>
       </Section>
@@ -80,7 +143,13 @@ export default function Home() {
               About Me
             </h2>
             <p className="font-sans font-normal text-[17px] leading-[1.6] text-text-muted-light mb-8">
-              Software Engineering student with hands-on experience building full-stack web applications using React, Next.js, PostgreSQL, and Prisma ORM. Comfortable across the stack — from designing REST APIs and database schemas to building clean, functional UIs. Led documentation and frontend development on a team project. Looking to join a collaborative team where I can contribute, learn fast, and grow as a full-stack engineer.
+              Software Engineering student with hands-on experience building
+              full-stack web applications using React, Next.js, PostgreSQL, and
+              Prisma ORM. Comfortable across the stack — from designing REST
+              APIs and database schemas to building clean, functional UIs. Led
+              documentation and frontend development on a team project. Looking
+              to join a collaborative team where I can contribute, learn fast,
+              and grow as a full-stack engineer.
             </p>
             <div className="mb-10">
               <span className="inline-block bg-paper-50 border-[1px] border-line-blueprint/30 rounded-[4px] py-[6px] px-[12px] font-mono font-medium text-[12px] text-paper-text uppercase tracking-wide">
@@ -91,7 +160,6 @@ export default function Home() {
         </div>
       </Section>
 
-
       {/* 3. MY STACK */}
       <Section bgTheme="ink" id="stack" index={2}>
         <SectionHeader label="TABLE: tech_stack" />
@@ -99,19 +167,23 @@ export default function Home() {
           <h2 className="font-display font-[600] text-[clamp(2rem,5vw,3.25rem)] tracking-[-0.5px] leading-[1.2] mb-12 text-ink-text">
             My Stack
           </h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[48px]">
             <div>
-              <p className="font-mono font-medium text-[12px] uppercase text-text-muted-dark mb-4 tracking-[1.5px]">Languages</p>
+              <p className="font-mono font-medium text-[12px] uppercase text-text-muted-dark mb-4 tracking-[1.5px]">
+                Languages
+              </p>
               <div className="flex flex-wrap gap-[8px]">
                 <SkillChip label="JavaScript" />
                 <SkillChip label="TypeScript" />
                 <SkillChip label="SQL" />
               </div>
             </div>
-            
+
             <div>
-              <p className="font-mono font-medium text-[12px] uppercase text-text-muted-dark mb-4 tracking-[1.5px]">Frontend</p>
+              <p className="font-mono font-medium text-[12px] uppercase text-text-muted-dark mb-4 tracking-[1.5px]">
+                Frontend
+              </p>
               <div className="flex flex-wrap gap-[8px]">
                 <SkillChip label="React.js" />
                 <SkillChip label="Next.js" />
@@ -123,16 +195,21 @@ export default function Home() {
             </div>
 
             <div>
-              <p className="font-mono font-medium text-[12px] uppercase text-text-muted-dark mb-4 tracking-[1.5px]">Backend</p>
+              <p className="font-mono font-medium text-[12px] uppercase text-text-muted-dark mb-4 tracking-[1.5px]">
+                Backend
+              </p>
               <div className="flex flex-wrap gap-[8px]">
                 <SkillChip label="Express.js" />
                 <SkillChip label="Next.js API" />
                 <SkillChip label="REST API" />
+                <SkillChip label="Websockets" />
               </div>
             </div>
 
             <div>
-              <p className="font-mono font-medium text-[12px] uppercase text-text-muted-dark mb-4 tracking-[1.5px]">Database & ORM</p>
+              <p className="font-mono font-medium text-[12px] uppercase text-text-muted-dark mb-4 tracking-[1.5px]">
+                Database & ORM
+              </p>
               <div className="flex flex-wrap gap-[8px]">
                 <SkillChip label="PostgreSQL" />
                 <SkillChip label="MongoDB" />
@@ -142,7 +219,9 @@ export default function Home() {
             </div>
 
             <div>
-              <p className="font-mono font-medium text-[12px] uppercase text-text-muted-dark mb-4 tracking-[1.5px]">Tools</p>
+              <p className="font-mono font-medium text-[12px] uppercase text-text-muted-dark mb-4 tracking-[1.5px]">
+                Tools
+              </p>
               <div className="flex flex-wrap gap-[8px]">
                 <SkillChip label="Git" />
                 <SkillChip label="GitHub" />
@@ -165,11 +244,18 @@ export default function Home() {
               An AI-powered free project management tool
             </p>
             <p className="font-sans font-normal text-[15px] leading-[1.6] text-text-muted-light mb-6">
-              Full-stack web platform for team-based project management with role-based access and workload tracking.
+              Full-stack web platform for team-based project management with
+              role-based access and workload tracking.
             </p>
             <ul className="font-sans font-normal text-[15px] leading-[1.5] text-text-muted-light list-disc pl-5 flex flex-col gap-2">
-              <li>Frontend development in Next.js — dashboards, task boards, RBAC-based UI flows</li>
-              <li>Documentation lead — full FYP docs including ERD, FPA, COCOMO'81 cost estimation, and PlantUML diagrams</li>
+              <li>
+                Frontend development in Next.js — dashboards, task boards,
+                RBAC-based UI flows
+              </li>
+              <li>
+                Documentation lead — full FYP docs including ERD, FPA, COCOMO'81
+                cost estimation, and PlantUML diagrams
+              </li>
             </ul>
           </div>
           <div className="w-full xl:w-auto">
@@ -190,13 +276,25 @@ export default function Home() {
               A simple React-Express gym management system
             </p>
             <p className="font-sans font-normal text-[15px] leading-[1.6] text-text-muted-dark mb-6">
-              Full-stack web application built to manage gym operations — members, classes, check-ins, and inventory.
+              Full-stack web application built to manage gym operations —
+              members, classes, check-ins, and inventory.
             </p>
             <ul className="font-sans font-normal text-[15px] leading-[1.5] text-text-muted-dark list-disc pl-5 flex flex-col gap-2">
-              <li>Relational database schema using Prisma ORM and SQLite for members, schedules, and equipment</li>
-              <li>Administrative features secured with JWT authentication and password hashing</li>
-              <li>Inventory tracker for equipment status and maintenance logs</li>
-              <li>Responsive dashboard built with React 19, Vite, Tailwind CSS, and GSAP animations</li>
+              <li>
+                Relational database schema using Prisma ORM and SQLite for
+                members, schedules, and equipment
+              </li>
+              <li>
+                Administrative features secured with JWT authentication and
+                password hashing
+              </li>
+              <li>
+                Inventory tracker for equipment status and maintenance logs
+              </li>
+              <li>
+                Responsive dashboard built with React 19, Vite, Tailwind CSS,
+                and GSAP animations
+              </li>
             </ul>
           </div>
           <div className="w-full xl:w-auto">
@@ -217,10 +315,14 @@ export default function Home() {
               Personalised long-form writing & content discovery platform
             </p>
             <p className="font-sans font-normal text-[15px] leading-[1.6] text-text-muted-light mb-6">
-              Full-stack writing and discovery platform where users publish long-form articles.
+              Full-stack writing and discovery platform where users publish
+              long-form articles.
             </p>
             <ul className="font-sans font-normal text-[15px] leading-[1.5] text-text-muted-light list-disc pl-5 flex flex-col gap-2">
-              <li>Built with Next.js (fullstack) + PostgreSQL + Prisma — no separate backend service</li>
+              <li>
+                Built with Next.js (fullstack) + PostgreSQL + Prisma — no
+                separate backend service
+              </li>
               <li>Rich text editor and real-time notifications system</li>
             </ul>
           </div>
@@ -238,13 +340,33 @@ export default function Home() {
             Let's build something structured.
           </h2>
           <p className="font-sans font-normal text-[17px] text-text-muted-dark mb-12">
-            Available for new opportunities. Reach out if you're looking for a developer who treats front-end code with back-end rigor.
+            Available for new opportunities. Reach out if you're looking for a
+            developer who treats front-end code with back-end rigor.
           </p>
           <div className="flex flex-wrap gap-[16px] justify-center items-center w-full">
-            <CTAButton icon={Mail} label="Email Me" href="mailto:im.7249000@gmail.com" />
-            <IconBadge icon={Phone} label="0310-7754767" bgTheme="ink" href="tel:03107754767" />
-            <IconBadge icon={FiGithub} label="Github" bgTheme="ink" href="https://github.com/Ibrahim-116" />
-            <IconBadge icon={FiLinkedin} label="LinkedIn" bgTheme="ink" href="https://linkedin.com/in/Ibrahim-Muhammad" />
+            <CTAButton
+              icon={Mail}
+              label="Email Me"
+              href="mailto:im.7249000@gmail.com"
+            />
+            <IconBadge
+              icon={Phone}
+              label="0310-7754767"
+              bgTheme="ink"
+              href="tel:03107754767"
+            />
+            <IconBadge
+              icon={FiGithub}
+              label="Github"
+              bgTheme="ink"
+              href="https://github.com/Ibrahim-116"
+            />
+            <IconBadge
+              icon={FiLinkedin}
+              label="LinkedIn"
+              bgTheme="ink"
+              href="https://linkedin.com/in/Ibrahim-Muhammad"
+            />
           </div>
         </div>
       </Section>
