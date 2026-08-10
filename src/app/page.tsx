@@ -35,7 +35,11 @@ export default function Home() {
     { key: "name", value: '"Ibrahim Muhammad"' },
     { key: "role", value: '"Software Engineer"' },
     { key: "location", value: '"Gujrat, Pakistan"' },
-    { key: "stack", value: "[React, Next.js, Express, PostgreSQL, Prisma]" },
+    {
+      key: "stack",
+      value:
+        "[React.js, Next.js, Node.js, Express.js, PostgreSQL, Prisma, MongoDB, Mongoose]",
+    },
   ];
 
   const sections = [
@@ -61,11 +65,11 @@ export default function Home() {
       >
         <div className="relative w-full max-w-[800px] mx-auto mt-20 lg:mt-0">
           {/* Accent signature */}
-          <div className="absolute -top-12 lg:-top-16 -left-2 lg:-left-8 rotate-[-6deg] opacity-80 z-20 pointer-events-none">
+          {/* <div className="absolute -top-12 lg:-top-16 -left-2 lg:-left-8 rotate-[-6deg] opacity-80 z-20 pointer-events-none">
             <span className="font-caveat font-[600] text-[56px] lg:text-[80px] text-text-muted-dark">
               Ibrahim
             </span>
-          </div>
+          </div> */}
 
           <div className="font-mono text-[14px] md:text-[16px] lg:text-[18px] text-paper-100 leading-[2] md:leading-[2.5] relative z-10 w-full lg:w-fit">
             <div
@@ -259,7 +263,7 @@ export default function Home() {
             </ul>
           </div>
           <div className="w-full xl:w-auto">
-            <DynamicProjectVisualizer projectId="planora" bgTheme="paper" />
+            {/* <DynamicProjectVisualizer projectId="planora" bgTheme="paper" /> */}
           </div>
         </div>
       </Section>
@@ -298,7 +302,7 @@ export default function Home() {
             </ul>
           </div>
           <div className="w-full xl:w-auto">
-            <DynamicProjectVisualizer projectId="gym" bgTheme="ink" />
+            {/* <DynamicProjectVisualizer projectId="gym" bgTheme="ink" /> */}
           </div>
         </div>
       </Section>
@@ -327,7 +331,7 @@ export default function Home() {
             </ul>
           </div>
           <div className="w-full xl:w-auto">
-            <DynamicProjectVisualizer projectId="inkwell" bgTheme="paper" />
+            {/* <DynamicProjectVisualizer projectId="inkwell" bgTheme="paper" /> */}
           </div>
         </div>
       </Section>
