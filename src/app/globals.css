@@ -1,37 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --ink-900: #2E2B45;
-  --ink-700: #3F3B5D;
-  --paper-100: #F5EFE6;
-  --paper-50: #FBF7F2;
-  --line-blueprint: #D3CBE8;
-  --signal-amber: #9FD3B8;
-  --ink-text: #F1EDF7;
-  --paper-text: #3A3550;
-  --text-muted-dark: #B7B0CC;
-  --text-muted-light: #75708C;
+  --bg-color: #F4F4F2;
+  --fg-color: #1C1C1A;
 }
 
 @theme inline {
-  --color-ink-900: var(--ink-900);
-  --color-ink-700: var(--ink-700);
-  --color-paper-100: var(--paper-100);
-  --color-paper-50: var(--paper-50);
-  --color-line-blueprint: var(--line-blueprint);
-  --color-signal-amber: var(--signal-amber);
-  --color-ink-text: var(--ink-text);
-  --color-paper-text: var(--paper-text);
-  --color-text-muted-dark: var(--text-muted-dark);
-  --color-text-muted-light: var(--text-muted-light);
-
-  --font-display: var(--font-space-grotesk);
-  --font-sans: var(--font-ibm-plex-sans);
-  --font-mono: var(--font-ibm-plex-mono);
-  --font-caveat: var(--font-caveat);
+  --font-sans: var(--font-inter);
 }
 
 body {
+  background-color: var(--bg-color);
+  color: var(--fg-color);
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -39,86 +19,29 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+::selection {
+  background-color: var(--fg-color);
+  color: var(--bg-color);
+}
+
 * {
   box-sizing: border-box;
 }
 
-.bg-blueprint-grid {
-  background-size: 24px 24px;
-  background-image: 
-    linear-gradient(to right, rgba(92, 135, 163, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(92, 135, 163, 0.06) 1px, transparent 1px);
+/* Massive typography tracking helper */
+.tracking-ultra-tight {
+  letter-spacing: -0.04em;
 }
 
+.tracking-ultra-wide {
+  letter-spacing: 0.15em;
+}
+
+/* Focus styles */
 .focus-ring {
   outline: none;
 }
 .focus-ring:focus-visible {
-  outline: 2px solid var(--signal-amber);
-  outline-offset: 2px;
-}
-
-.section-reveal {
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 400ms ease-out, transform 400ms ease-out;
-}
-.section-reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@keyframes riseFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-field-stagger {
-  animation: riseFadeIn 400ms ease-out forwards;
-  opacity: 0;
-}
-
-@keyframes pulseAmber {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
-}
-
-.animate-pulse-amber {
-  animation: pulseAmber 2s ease-in-out infinite;
-}
-
-.draw-line {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  transition: stroke-dashoffset 600ms ease-out;
-}
-.draw-line.is-drawn {
-  stroke-dashoffset: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-field-stagger {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-  .animate-pulse-amber {
-    animation: none !important;
-    opacity: 1 !important;
-  }
-  .draw-line {
-    stroke-dashoffset: 0 !important;
-    transition: none !important;
-  }
-  .section-reveal {
-    transition: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
+  outline: 2px solid var(--fg-color);
+  outline-offset: 4px;
 }
