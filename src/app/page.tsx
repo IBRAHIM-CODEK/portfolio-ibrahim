@@ -10,7 +10,6 @@ import {
   SkillChip,
   DotNav,
 } from "@/components/Shared";
-import { DynamicProjectVisualizer } from "@/components/ProjectVisualizers";
 
 export const CTAButton = ({
   icon: Icon,
@@ -147,17 +146,16 @@ export default function Home() {
               About Me
             </h2>
             <p className="font-sans font-normal text-[17px] leading-[1.6] text-text-muted-light mb-8">
-              Software Engineering student with hands-on experience building
-              full-stack web applications using React, Next.js, PostgreSQL, and
-              Prisma ORM. Comfortable across the stack — from designing REST
-              APIs and database schemas to building clean, functional UIs. Led
-              documentation and frontend development on a team project. Looking
-              to join a collaborative team where I can contribute, learn fast,
-              and grow as a full-stack engineer.
+              Software engineering graduate with hands-on full-stack experience
+              across React, Next.js, MongoDB, PostgreSQL, and Prisma ORM.
+              Skilled in designing REST APIs and database schemas, debugging
+              application issues, and delivering fullstack features end-to-end.
+              Seeking to architect scalable full-stack applications, drive
+              engineering excellence and continue to learn and grow.
             </p>
             <div className="mb-10">
               <span className="inline-block bg-paper-50 border-[1px] border-line-blueprint/30 rounded-[4px] py-[6px] px-[12px] font-mono font-medium text-[12px] text-paper-text uppercase tracking-wide">
-                BSSE, University of Gujrat — 2022-2026
+                BSSE (CGPA - 3.62), University of Gujrat — 2022-2026
               </span>
             </div>
           </div>
@@ -191,10 +189,10 @@ export default function Home() {
               <div className="flex flex-wrap gap-[8px]">
                 <SkillChip label="React.js" />
                 <SkillChip label="Next.js" />
-                <SkillChip label="Vanilla JS" />
                 <SkillChip label="HTML5" />
                 <SkillChip label="CSS3" />
                 <SkillChip label="Tailwind CSS" />
+                <SkillChip label="MUI" />
               </div>
             </div>
 
@@ -239,31 +237,51 @@ export default function Home() {
       {/* 4. PROJECT 1 - PLANORA */}
       <Section bgTheme="paper" id="project-1" index={3}>
         <SectionHeader label="TABLE: planora" />
-        <div className="flex-1 flex flex-col xl:flex-row justify-between items-center gap-12 xl:gap-16">
-          <div className="flex-1 w-full max-w-[600px]">
+        <div className="flex-1 flex flex-col justify-center">
+          <div className="w-full max-w-[850px] mx-auto">
             <h2 className="font-display font-[600] text-[clamp(2rem,5vw,3.25rem)] tracking-[-0.5px] leading-[1.2] mb-4 text-paper-text">
               Planora
             </h2>
             <p className="font-sans font-medium text-[17px] text-paper-text mb-4">
-              An AI-powered free project management tool
+              <i>
+                An AI-powered project management platform featuring role-based
+                accesscontrol (RBAC) and dynamic workload tracking
+              </i>
             </p>
-            <p className="font-sans font-normal text-[15px] leading-[1.6] text-text-muted-light mb-6">
-              Full-stack web platform for team-based project management with
-              role-based access and workload tracking.
-            </p>
+
             <ul className="font-sans font-normal text-[15px] leading-[1.5] text-text-muted-light list-disc pl-5 flex flex-col gap-2">
               <li>
-                Frontend development in Next.js — dashboards, task boards,
-                RBAC-based UI flows
+                Developed responsive dashboards and dynamic task boards to
+                visualize workload distribution and streamline team
+                collaboration.
               </li>
               <li>
-                Documentation lead — full FYP docs including ERD, FPA, COCOMO'81
-                cost estimation, and PlantUML diagrams
+                Architected full-stack workflows using Next.js, PostgreSQL, and
+                Prisma ORM to seamlessly manage tasks, teams, and role-specific
+                permissions
               </li>
             </ul>
-          </div>
-          <div className="w-full xl:w-auto">
-            {/* <DynamicProjectVisualizer projectId="planora" bgTheme="paper" /> */}
+
+            {/* Technical Dossier Footer */}
+            <div className="mt-10 pt-8 border-t-[1px] border-line-blueprint/30 grid grid-cols-2 md:grid-cols-3 gap-6">
+              <div>
+                <span className="block font-mono text-[11px] text-text-muted-light uppercase tracking-[1.5px] mb-1.5">
+                  Role
+                </span>
+                <span className="font-sans text-[15px] text-paper-text font-medium">
+                  Full-stack developer (backend focus)
+                </span>
+              </div>
+
+              <div>
+                <span className="block font-mono text-[11px] text-text-muted-light uppercase tracking-[1.5px] mb-1.5">
+                  Primary Tech
+                </span>
+                <span className="font-sans text-[15px] text-paper-text font-medium">
+                  Next.js, Tailwind, Prisma
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </Section>
@@ -271,18 +289,18 @@ export default function Home() {
       {/* 5. PROJECT 2 - GYM MANAGEMENT SYSTEM */}
       <Section bgTheme="ink" id="project-2" index={4}>
         <SectionHeader label="TABLE: form_factor" />
-        <div className="flex-1 flex flex-col xl:flex-row-reverse justify-between items-center gap-12 xl:gap-16">
-          <div className="flex-1 w-full max-w-[600px]">
+        <div className="flex-1 flex flex-col justify-center">
+          <div className="w-full max-w-[850px] mx-auto">
             <h2 className="font-display font-[600] text-[clamp(2rem,5vw,3.25rem)] tracking-[-0.5px] leading-[1.2] mb-4 text-ink-text">
-              Gym Management
+              Form Factor
             </h2>
             <p className="font-sans font-medium text-[17px] text-ink-text mb-4">
-              A simple React-Express gym management system
+              <i>
+                A react-express gym managementsystem for managing
+                members,check-ins, and equipment inventory.
+              </i>
             </p>
-            <p className="font-sans font-normal text-[15px] leading-[1.6] text-text-muted-dark mb-6">
-              Full-stack web application built to manage gym operations —
-              members, classes, check-ins, and inventory.
-            </p>
+
             <ul className="font-sans font-normal text-[15px] leading-[1.5] text-text-muted-dark list-disc pl-5 flex flex-col gap-2">
               <li>
                 Relational database schema using Prisma ORM and SQLite for
@@ -296,13 +314,30 @@ export default function Home() {
                 Inventory tracker for equipment status and maintenance logs
               </li>
               <li>
-                Responsive dashboard built with React 19, Vite, Tailwind CSS,
-                and GSAP animations
+                Responsive dashboard built with React 19, Vite, and Tailwind CSS
               </li>
             </ul>
-          </div>
-          <div className="w-full xl:w-auto">
-            {/* <DynamicProjectVisualizer projectId="gym" bgTheme="ink" /> */}
+
+            {/* Technical Dossier Footer */}
+            <div className="mt-10 pt-8 border-t-[1px] border-line-blueprint/30 grid grid-cols-2 md:grid-cols-3 gap-6">
+              <div>
+                <span className="block font-mono text-[11px] text-text-muted-dark uppercase tracking-[1.5px] mb-1.5">
+                  Role
+                </span>
+                <span className="font-sans text-[15px] text-ink-text font-medium">
+                  Full-stack Developer
+                </span>
+              </div>
+
+              <div>
+                <span className="block font-mono text-[11px] text-text-muted-dark uppercase tracking-[1.5px] mb-1.5">
+                  Primary Tech
+                </span>
+                <span className="font-sans text-[15px] text-ink-text font-medium">
+                  React, Express, SQLite
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </Section>
@@ -310,28 +345,48 @@ export default function Home() {
       {/* 6. PROJECT 3 - INKWELL */}
       <Section bgTheme="paper" id="project-3" index={5}>
         <SectionHeader label="TABLE: inkwell" />
-        <div className="flex-1 flex flex-col xl:flex-row justify-between items-center gap-12 xl:gap-16">
-          <div className="flex-1 w-full max-w-[600px]">
+        <div className="flex-1 flex flex-col justify-center">
+          <div className="w-full max-w-[850px] mx-auto">
             <h2 className="font-display font-[600] text-[clamp(2rem,5vw,3.25rem)] tracking-[-0.5px] leading-[1.2] mb-4 text-paper-text">
               Inkwell
             </h2>
             <p className="font-sans font-medium text-[17px] text-paper-text mb-4">
-              Personalised long-form writing & content discovery platform
+              <i>
+                Personalised Long-Form Writing Platform where users publish
+                long-form articles.
+              </i>
             </p>
-            <p className="font-sans font-normal text-[15px] leading-[1.6] text-text-muted-light mb-6">
-              Full-stack writing and discovery platform where users publish
-              long-form articles.
-            </p>
+
             <ul className="font-sans font-normal text-[15px] leading-[1.5] text-text-muted-light list-disc pl-5 flex flex-col gap-2">
               <li>
-                Built with Next.js (fullstack) + PostgreSQL + Prisma — no
-                separate backend service
+                Created responsive UIs and robust backend using Next.js,
+                PostgreSQL and Prisma ORM.
               </li>
-              <li>Rich text editor and real-time notifications system</li>
+              <li>
+                Developed a rich text editor and real-time notifications system.
+              </li>
             </ul>
-          </div>
-          <div className="w-full xl:w-auto">
-            {/* <DynamicProjectVisualizer projectId="inkwell" bgTheme="paper" /> */}
+
+            {/* Technical Dossier Footer */}
+            <div className="mt-10 pt-8 border-t-[1px] border-line-blueprint/30 grid grid-cols-2 md:grid-cols-3 gap-6">
+              <div>
+                <span className="block font-mono text-[11px] text-text-muted-light uppercase tracking-[1.5px] mb-1.5">
+                  Role
+                </span>
+                <span className="font-sans text-[15px] text-paper-text font-medium">
+                  Full-stack Developer
+                </span>
+              </div>
+
+              <div>
+                <span className="block font-mono text-[11px] text-text-muted-light uppercase tracking-[1.5px] mb-1.5">
+                  Primary Tech
+                </span>
+                <span className="font-sans text-[15px] text-paper-text font-medium">
+                  Next.js, PostgreSQL
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </Section>
@@ -363,13 +418,13 @@ export default function Home() {
               icon={FiGithub}
               label="Github"
               bgTheme="ink"
-              href="https://github.com/Ibrahim-116"
+              href="https://github.com/ibrahim-116"
             />
             <IconBadge
               icon={FiLinkedin}
               label="LinkedIn"
               bgTheme="ink"
-              href="https://linkedin.com/in/Ibrahim-Muhammad"
+              href="https://www.linkedin.com/in/ibrahim-muhammad-06211234a/"
             />
           </div>
         </div>
