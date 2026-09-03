@@ -181,7 +181,7 @@ export default function Home() {
               <span className="block text-[12px] uppercase tracking-ultra-wide font-semibold opacity-60 mb-4 border-b border-[#1C1C1A]/20 pb-2">
                 Tools & Other
               </span>
-              <ul className="flex flex-col gap-2 text-[16px] font-medium">
+              <ul className="flex flex-col gap-2 text-[16apx] font-medium">
                 <li>Git</li>
                 <li>GitHub</li>
                 <li>Postman</li>
@@ -283,7 +283,7 @@ export default function Home() {
             href="mailto:im.7249000@gmail.com"
             className="block w-fit group focus-ring"
           >
-            <h2 className="text-[6vw] md:text-[5vw] leading-[1] tracking-ultra-tight font-medium group-hover:italic transition-all duration-300 flex items-center gap-4 md:gap-8">
+            <h2 className="text-[6vw] md:text-[5vw] leading-[1] tracking-ultra-tight font-medium  transition-all duration-300 flex items-center gap-4 md:gap-8">
               Send an Email
               <svg
                 className="w-10 h-10 md:w-16 md:h-16 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
@@ -304,7 +304,7 @@ export default function Home() {
               href="https://github.com/ibrahim-116"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[16px] uppercase tracking-wide font-medium hover:opacity-60 transition-opacity focus-ring"
+              className="text-[25px] uppercase tracking-wide font-medium hover:opacity-60 transition-opacity focus-ring"
             >
               GitHub
             </a>
@@ -312,7 +312,7 @@ export default function Home() {
               href="https://www.linkedin.com/in/ibrahim-muhammad-06211234a/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[16px] uppercase tracking-wide font-medium hover:opacity-60 transition-opacity focus-ring"
+              className="text-[25px] uppercase tracking-wide font-medium hover:opacity-60 transition-opacity focus-ring"
             >
               LinkedIn
             </a>
