@@ -25,7 +25,7 @@ const ProjectAccordion = ({
         className="w-full text-left py-10 lg:py-16 focus-ring outline-none"
       >
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <h3 className="text-[32px] md:text-[4.5vw] leading-[1] tracking-ultra-tight font-medium transition-all duration-300 flex items-center gap-4 lg:gap-8">
+          <h3 className="text-[32px] md:text-[5vw] leading tracking-ultra-tight font-medium transition-all duration-300 flex items-center gap-4 lg:gap-8">
             {title}
             <svg
               className={`w-8 h-8 md:w-12 md:h-12 transition-all duration-300 ${isOpen ? "rotate-180 opacity-100" : "opacity-20 group-hover:opacity-100 group-hover:translate-y-1"}`}
@@ -92,11 +92,11 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="flex min-h-screen flex-col w-full pt-24">
+      <main className="flex min-h-screen flex-col w-full ">
         {/* HERO */}
         <section className="w-full max-w-[1400px] mx-auto px-6 py-20 lg:py-32 flex items-center min-h-[70vh]">
-          <h1 className="text-[8vw] md:text-[5vw] leading-[1.1] tracking-ultra-tight font-medium max-w-[90%]">
-            Hi, I'm Ibrahim Muhammad. I build{" "}
+          <h1 className="text-[8vw] md:text-[6vw] leading-[1.1] tracking-ultra-tight font-medium max-w-[90%]">
+            Hi, I&apos;m Ibrahim Muhammad. I build{" "}
             <span className="inline-flex items-center justify-center align-middle mx-2 md:mx-4 w-[8vw] h-[8vw] md:w-[5vw] md:h-[5vw] bg-[#1C1C1A] text-[#F4F4F2] rounded-full">
               <svg
                 className="w-1/2 h-1/2"
@@ -162,6 +162,7 @@ export default function Home() {
               </span>
               <ul className="flex flex-col gap-2 text-[16px] font-medium">
                 <li>PostgreSQL</li>
+                <li>MySQL</li>
                 <li>MongoDB</li>
                 <li>Mongoose</li>
                 <li>Prisma ORM</li>
