@@ -218,7 +218,7 @@ export default function Home() {
                 </div>
               }
               tech="Next.js, PostgreSQL, Prisma ORM"
-              link="https://github.com/ibrahim-116/Planora/tree/new-repo"
+              link="https://github.com/IBRAHIM-CODEK/Planora/tree/new-repo"
             />
 
             <ProjectAccordion
@@ -243,7 +243,7 @@ export default function Home() {
                 </div>
               }
               tech="React, Express, SQLite, Node.js"
-              link="https://github.com/ibrahim-116/next-js-gym-management-system"
+              link="https://github.com/IBRAHIM-CODEK/next-js-gym-management-system"
             />
 
             <ProjectAccordion
@@ -268,7 +268,7 @@ export default function Home() {
                 </div>
               }
               tech="Next.js (Fullstack), PostgreSQL, Prisma ORM"
-              link="https://github.com/Ibrahim-116/inkwell"
+              link="https://github.com/IBRAHIM-CODEK/inkwell"
             />
           </div>
         </EditorialSection>
@@ -301,7 +301,7 @@ export default function Home() {
           </a>
           <div className="mt-12 flex gap-8">
             <a
-              href="https://github.com/ibrahim-116"
+              href="https://github.com/IBRAHIM-CODEK"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[25px] uppercase tracking-wide font-medium hover:opacity-60 transition-opacity focus-ring"
